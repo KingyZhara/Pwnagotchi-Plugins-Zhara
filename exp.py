@@ -165,9 +165,9 @@ class EXP(plugins.Plugin):
             os.remove(legacyFile)
     
     def on_ui_setup(self, ui):
-        ui.add_element('Lv', LabeledValue(color=BLACK, label='Lv', value=0, position=(ui.width() / 2 - 125, 95),
+        ui.add_element('Lv', LabeledValue(color=BLACK, label='Lv', value=0, position=(ui.width() / 2 - 125, 90),
                                            label_font=fonts.Bold, text_font=fonts.Medium))
-        ui.add_element('Exp', LabeledValue(color=BLACK, label='Exp', value=0, position=(ui.width() / 2 - 85, 95),
+        ui.add_element('Exp', LabeledValue(color=BLACK, label='Exp', value=0, position=(ui.width() / 2 - 85, 90),
                                            label_font=fonts.Bold, text_font=fonts.Medium))
     def on_ui_update(self, ui):
         self.expneeded=self.calcExpNeeded(self.lv)
@@ -191,7 +191,9 @@ class EXP(plugins.Plugin):
             bar="╷▄▄▄▄▄▄▄   ╷"
         elif self.percent>=80 and self.percent<90:
             bar="╷▄▄▄▄▄▄▄▄  ╷"
-        elif self.percent>=90 and self.percent<=100:
+        elif self.percent>=90 and self.percent<99:
+            bar="╷▄▄▄▄▄▄▄▄▄ ╷"
+        elif self.percent>=99 and self.percent<=100:
             bar="╷▄▄▄▄▄▄▄▄▄▄╷"
         elif self.percent > 100:
             bar = BAR_ERROR
